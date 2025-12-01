@@ -1,5 +1,8 @@
 body{
-    background: black;
+    background-image: url("snow_scene.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
 }
 
@@ -15,14 +18,18 @@ body{
 }
 
 #merry{
+    position: relative;
     color: green;
     font-style: italic;
 }
 
 #merry::before{
-    content:url("christmas_hat.png");
+    content:url("christmas_hat.svg");
     position: absolute;
-    transform: scale(0.5) translate(-550px, -320px) rotate(-10deg);
+    top:  -2.5rem;  
+    left: -2rem;     
+    transform: scale(0.3) rotate(-10deg); 
+    transform-origin: top left; 
 }
 
 span{
