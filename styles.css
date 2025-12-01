@@ -23,13 +23,13 @@ body{
     font-style: italic;
 }
 
-#merry::before{
-    content:url("christmas_hat.svg");
-    position: absolute;
-    top:  -2.5rem;  
-    left: -2rem;     
-    transform: scale(0.3) rotate(-10deg); 
-    transform-origin: top left; 
+#merry .hat {
+  position: absolute;
+  left:-0.3ch;
+  bottom: 1.1ch;         
+  width: 2ch;          
+  height: auto;
+  transform-origin: bottom left; 
 }
 
 span{
