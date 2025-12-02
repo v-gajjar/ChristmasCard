@@ -4,27 +4,42 @@ const MAX_SNOWFLAKE_SPEED = 3;
 const SNOWFLAKE_COLOUR = "#ddd";
 const snowflakes = [];
 
+
+let animationId = null;
 let canvasWidth = window.innerWidth;
 let canvasHeight = window.innerHeight;
 
-const canvas = document.createElement("canvas");
-
-canvas.style.position = "absolute";
-canvas.style.pointerEvents = "none";
-canvas.style.top = "0px";
-canvas.style.left = "0px";
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let canvas = null
 
 let firstRender = true;
 let ctx;
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.body.appendChild(canvas);
+  canvas = document.getElementById("snow-canvas");
+  canvas.style.position = "absolute";
+  canvas.style.pointerEvents = "none";
+  canvas.style.top = "0px";
+  canvas.style.left = "0px";
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
   ctx = canvas.getContext("2d");
 
+  generateSnowFlakes();
+  animate();
+});
+
+window.addEventListener("resize", () => {
+  cancelAnimationFrame(animationId);
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  canvasWidth = window.innerWidth;
+  canvasHeight = window.innerHeight;
+
+  snowflakes.length = 0;
   generateSnowFlakes();
   animate();
 });
@@ -70,6 +85,8 @@ const updateSnowflake = (snowflake) => {
 };
 
 const animate = () => {
+
+  animationId = requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   snowflakes.forEach((snowflake) => {
@@ -78,5 +95,5 @@ const animate = () => {
   });
   if (firstRender) firstRender = false;
 
-  requestAnimationFrame(animate);
+  
 };
