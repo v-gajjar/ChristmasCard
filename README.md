@@ -4,7 +4,7 @@
 
 <p align="left">
   <img 
-    src="../assets/frosty.png"
+    src="assets/frosty.png"
     width="800"
     alt="Pixel art scene showing Santa Claus with his arm around a snowman, standing beside a decorated Christmas tree in a snowy landscape at night."
     title="Pixel Art Santa, Snowman, and Christmas Tree"
