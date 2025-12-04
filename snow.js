@@ -39,13 +39,25 @@ window.addEventListener("resize", () => {
   canvasWidth = window.innerWidth;
   canvasHeight = window.innerHeight;
 
-  snowflakes.length = 0;
-  generateSnowFlakes();
+  const removedCount = removeOutOfBoundSnowflakes();
+  generateSnowFlakes(removedCount);
   animate();
 });
 
-const generateSnowFlakes = () => {
-  for (let i = 0; i < NUMBER_OF_SNOWFLAKES; i++) {
+const removeOutOfBoundSnowflakes = () => {
+  let removedCount = 0;
+  for (let i = snowflakes.length - 1; i >= 0; i--) {
+    const snowflake = snowflakes[i];
+    if (snowflake.x > canvas.width || snowflake.y > canvas.height) {
+      snowflakes.splice(i, 1);
+      removedCount++;
+    }
+  }
+  return removedCount;
+}
+
+const generateSnowFlakes = (count = NUMBER_OF_SNOWFLAKES) => {
+  for (let i = 0; i < count; i++) {
     snowflakes.push(createSnowflake());
   }
 }
