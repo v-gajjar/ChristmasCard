@@ -4,6 +4,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
+    font-family: Verdana;
 }
 
 #flex-container {
@@ -17,29 +18,40 @@ body{
     z-index: 1000;
 }
 
+
 #merry{
     position: relative;
-    color: green;
-    font-style: italic;
+
 }
 
-#merry .hat {
-  position: absolute;
-  left:-0.3ch;
-  bottom: 1.1ch;         
-  width: 2ch;          
-  height: auto;
-  transform-origin: bottom left; 
+.merry-first-letter{
+    position:relative
 }
 
-span{
-    font-family: Verdana;
+.merry-first-letter::after {
+    content: '';
+    background-image: url("christmas_hat.svg");
+    background-repeat: no-repeat;
+    background-size: contain;   
+    position: absolute;
+    width: 1.5em;              
+    height: 1.5em;              
+    top: -0.55em;                
+    left: -0.1em;              
+    pointer-events: none;
+    transform:rotate(-10deg);
+}
+
+
+span {
     text-shadow: 1px 1px white;
     font-weight: bold;
 }
 
-.sofia {
+.text-emphasise{
     font-family: "Sofia", sans-serif;
+    color: green;
+    font-style: italic;
 }
 
 #from {
