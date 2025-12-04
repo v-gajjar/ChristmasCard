@@ -11,9 +11,9 @@
   >
 </p>
 
-[![GitHub stars](https://img.shields.io/github/stars/v-gajjar/christmas-ecard?style=social)](https://github.com/v-gajjar/christmas-ecard/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/v-gajjar/christmas-ecard?style=social)](https://github.com/v-gajjar/christmas-ecard/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/v-gajjar/christmas-ecard)](https://github.com/v-gajjar/christmas-ecard/issues)
+[![GitHub stars](https://img.shields.io/github/stars/v-gajjar/ChristmasCard?style=social)](https://github.com/v-gajjar/ChristmasCard/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/v-gajjar/ChristmasCard?style=social)](https://github.com/v-gajjar/ChristmasCard/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/v-gajjar/ChristmasCard)](https://github.com/v-gajjar/ChristmasCard/issues)
 ![Snowflakes](https://img.shields.io/badge/snowflakes-300-blue?logo=snowflake)
 
 This project started as some lighthearted seasonal fun — I wanted to play with Canvas animations, sprinkle in some CSS magic, and build something people could tweak and send to friends. It turned into a fully customizable Christmas e-card with falling snow, holiday characters, and a clean retro aesthetic.  
