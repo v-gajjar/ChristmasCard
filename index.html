@@ -1,34 +1,97 @@
 <!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-<link rel="stylesheet" href="styles.css">
-<script src="snow.js"></script>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Christmas E-Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="images/christmas_hat.svg" />
 
-</head>
+    <!-- Font for "Merry" -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia"
+    />
 
-<body>
-    <div id="flex-container">
-        <div id="greetingTopLine">
-            <span>Have </span>
-            <span class=".blankSpace"> </span>
-            <Span>Yourself</Span>
-            <span class=".blankSpace"> </span>
-            <span>a</span>
-        </div>
-        <div id="greetingBottomLine">
-            <span id="merry" class="sofia">
-            <img class="hat" src="christmas_hat.svg" alt="Christmas Hat">    
-                Merry
-            </span>
-            <span class=".blankSpace"> </span>
-            <Span>Little</Span>
-            <span class=".blankSpace"> </span>
-            <span>Christmas</span>
-        </div>
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- html2canvas for PNG export -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"
+      defer
+    ></script>
+
+    <!-- Snow + controls + exports -->
+    <script src="js/snow.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Control panel -->
+    <div id="controls">
+      <div class="control-group">
+        <label for="nameInput">Your name:</label>
+        <input
+          id="nameInput"
+          type="text"
+          placeholder="Nick"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="control-group">
+        <label for="borderSelect">Border style:</label>
+        <select id="borderSelect">
+          <option value="border-none">None</option>
+          <option value="border-gold">Gold frame</option>
+          <option value="border-holly">Holly green</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="snowSpeed">Snow speed:</label>
+        <input
+          id="snowSpeed"
+          type="range"
+          min="0.5"
+          max="4"
+          step="0.5"
+          value="1"
+        />
+        <span id="snowSpeedValue">1.0x</span>
+      </div>
+
+      <div class="buttons">
+        <button id="downloadPng">Download PNG</button>
+        <button id="downloadVideo">Download Video (WebM)</button>
+      </div>
     </div>
-    <div id="from"><span>From Vinay</span></div>
-</body>
+
+    <!-- Card -->
+    <div id="card" class="border-none">
+      <div id="flex-container">
+        <!-- TOP LINE – single text node -->
+        <div id="greetingTopLine">
+          Have Yourself a
+        </div>
+
+        <!-- BOTTOM LINE -->
+        <div id="greetingBottomLine">
+          <span id="merry" class="sofia">
+            <img
+              class="hat"
+              src="images/christmas_hat.svg"
+              alt="Christmas hat on the word Merry"
+            />
+            Merry
+          </span>
+          <span>Little</span>
+          <span>Christmas</span>
+        </div>
+      </div>
+
+      <div id="from">
+        <span>From Nick</span>
+      </div>
+    </div>
+  </body>
 </html>
-
-

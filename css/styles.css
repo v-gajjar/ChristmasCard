@@ -1,0 +1,238 @@
+/* Global layout + background */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
+  /* Background layers */
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("../images/snow_scene.jpg");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* Layout + typography */
+  font-family: Verdana, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+/* ---------------- Controls ---------------- */
+
+#controls {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 150px;
+}
+
+.control-group label {
+  font-size: 0.9rem;
+}
+
+.control-group input[type="text"],
+.control-group select,
+.control-group input[type="range"] {
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+#snowSpeedValue {
+  font-size: 0.85rem;
+  margin-left: 0.25rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background-color: rgba(220, 20, 60, 0.9);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background-color: rgba(255, 69, 0, 0.9);
+}
+
+/* ---------------- Card ---------------- */
+
+#card {
+  position: relative;
+  padding: 2rem 3rem;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 1rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Border styles */
+
+.border-none {
+  border: none;
+}
+
+.border-gold {
+  border: 10px solid #d4af37;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.border-holly {
+  border: 12px solid #0f5132;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------------- Greeting text ---------------- */
+
+#flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+/* Top line: simple centered text */
+#greetingTopLine {
+  text-align: center;
+  font-weight: bold;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.2em;
+}
+
+/* Bottom line: Merry + Little + Christmas, nicely spaced */
+#greetingBottomLine {
+  display: inline-flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.5ch;
+  font-weight: bold;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* Keep words from gluing together or wrapping mid-word */
+#greetingBottomLine span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* ---------------- Merry + hat ---------------- */
+
+#merry {
+  position: relative;
+  color: #7fff7f;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  animation: merry-wobble 3s ease-in-out infinite;
+}
+
+#merry .hat {
+  position: absolute;
+  left: -0.6ch;
+  bottom: 1.1ch;
+  width: 2.3ch;
+  height: auto;
+  transform-origin: bottom left;
+  animation: hat-tilt 3s ease-in-out infinite;
+}
+
+.sofia {
+  font-family: "Sofia", cursive;
+}
+
+/* ---------------- From line ---------------- */
+
+#from {
+  margin-top: 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  color: #ffb3b3;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* ---------------- Animations ---------------- */
+
+@keyframes merry-wobble {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes hat-tilt {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 600px) {
+  #card {
+    padding: 1.5rem;
+  }
+
+  #controls {
+    padding: 0.75rem 1rem;
+  }
+
+  #merry .hat {
+    bottom: 1ch;
+    width: 2ch;
+  }
+}

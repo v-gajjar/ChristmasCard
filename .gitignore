@@ -1,0 +1,91 @@
+# ----------------------------------
+# macOS system junk
+# ----------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Thumbnails
+._*.png
+._*.jpg
+
+# macOS metadata
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# ----------------------------------
+# VS Code
+# ----------------------------------
+.vscode/
+.history/
+*.code-workspace
+
+# ----------------------------------
+# Node / JavaScript ecosystem (optional but harmless)
+# ----------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# If you add builds later:
+dist/
+build/
+.cache/
+
+# ----------------------------------
+# Environment & temp
+# ----------------------------------
+.env
+.env.*
+.tmp
+temp/
+*.tmp
+
+# ----------------------------------
+# Output media from the card generator
+# ----------------------------------
+*.png
+*.webm
+*.mp4
+
+# But keep assets/snow_scene.jpg etc.
+!assets/**
+
+# ----------------------------------
+# OS / Editor backups
+# ----------------------------------
+*~
+*.swp
+*.swo
+*.bak
+*.orig
+*.tmp
+
+# ----------------------------------
+# Logs
+# ----------------------------------
+logs/
+*.log
+*.log.*
+
+# ----------------------------------
+# Misc
+# ----------------------------------
+Thumbs.db
+desktop.ini
+
+# ----------------------------------
+# Output media from the card generator
+# Prevent committing large binary assets
+# ----------------------------------
+*.webm
+*.mp4
+*.webp
