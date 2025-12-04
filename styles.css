@@ -5,6 +5,8 @@ body{
     background-size: cover;
     text-align: center;
     font-family: Verdana;
+    height: 100vh;
+    margin: 0;
 }
 
 #flex-container {
@@ -56,13 +58,13 @@ span {
 
 #from {
     position: absolute;
-    bottom: 0px;
+    bottom: 5vh; 
     font-size: 3em;
     color: red;
     width: 100%;
     text-align: center;
-    box-sizing: border-box;
-    padding-bottom: 100px;
+    box-sizing: border-box
 }
+
 
 
