@@ -1,9 +1,10 @@
-const NUMBER_OF_SNOWFLAKES = 300;
 const MAX_SNOWFLAKE_SIZE = 5;
 const MAX_SNOWFLAKE_SPEED = 3;
 const SNOWFLAKE_COLOUR = "#ddd";
+
 const snowflakes = [];
 
+const FLAKE_DENSITY = 0.000157;
 
 let animationId = null;
 let canvasWidth = window.innerWidth;
@@ -13,6 +14,9 @@ let canvas = null
 
 let firstRender = true;
 let ctx;
+
+let numberOfFlakes = Math.floor(window.innerWidth * window.innerHeight * FLAKE_DENSITY);
+
 
 document.addEventListener("DOMContentLoaded", () => {
   canvas = document.getElementById("snow-canvas");
@@ -26,12 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ctx = canvas.getContext("2d");
 
-  generateSnowFlakes();
+  generateSnowFlakes(numberOfFlakes);
   animate();
 });
 
 window.addEventListener("resize", () => {
   cancelAnimationFrame(animationId);
+
+  firstRender = true;
 
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -39,9 +45,17 @@ window.addEventListener("resize", () => {
   canvasWidth = window.innerWidth;
   canvasHeight = window.innerHeight;
 
-  const removedCount = removeOutOfBoundSnowflakes();
-  generateSnowFlakes(removedCount);
+  removeOutOfBoundSnowflakes();
+  const updatedNumberOfFlakes = Math.floor(window.innerWidth * window.innerHeight * FLAKE_DENSITY);
+
+  if ( snowflakes.length < updatedNumberOfFlakes  ) {
+    generateSnowFlakes(updatedNumberOfFlakes - snowflakes.length);
+  } else if ( snowflakes.length > updatedNumberOfFlakes ) {
+    snowflakes.splice(0, snowflakes.length - updatedNumberOfFlakes);
+  }
+
   animate();
+  firstRender = false;
 });
 
 const removeOutOfBoundSnowflakes = () => {
@@ -53,10 +67,9 @@ const removeOutOfBoundSnowflakes = () => {
       removedCount++;
     }
   }
-  return removedCount;
 }
 
-const generateSnowFlakes = (count = NUMBER_OF_SNOWFLAKES) => {
+const generateSnowFlakes = (count = numberOfFlakes) => {
   for (let i = 0; i < count; i++) {
     snowflakes.push(createSnowflake());
   }
@@ -106,6 +119,4 @@ const animate = () => {
     updateSnowflake(snowflake);
   });
   if (firstRender) firstRender = false;
-
-  
 };
