@@ -55,16 +55,13 @@ window.addEventListener("resize", () => {
   }
 
   animate();
-  firstRender = false;
 });
 
 const removeOutOfBoundSnowflakes = () => {
-  let removedCount = 0;
   for (let i = snowflakes.length - 1; i >= 0; i--) {
     const snowflake = snowflakes[i];
     if (snowflake.x > canvas.width || snowflake.y > canvas.height) {
       snowflakes.splice(i, 1);
-      removedCount++;
     }
   }
 }
