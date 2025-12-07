@@ -1,10 +1,24 @@
 body{
+    background-color: #f0f8ff;
+    height: 100vh;
+    margin: 0;
+}
+
+.card-wrapper-outer {
+    position:relative;
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.card-wrapper-inner{
+    position:relative;
     background-image: url("snow_scene.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    margin: 0;
+    aspect-ratio: 3 / 2;
+    max-width: 1200px;
+    height: auto;
 }
 
 .text {
@@ -18,7 +32,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     font-size: 5rem;
     color: red;
     flex-direction: column;

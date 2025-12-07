@@ -2,20 +2,22 @@ const MAX_SNOWFLAKE_SIZE = 5;
 const MAX_SNOWFLAKE_SPEED = 3;
 const SNOWFLAKE_COLOUR = "#ddd";
 
-const snowflakes = [];
-
 const FLAKE_DENSITY = 0.000157;
 
+const snowflakes = [];
+
 let animationId = null;
-let canvasWidth = window.innerWidth;
-let canvasHeight = window.innerHeight;
 
 let canvas = null
 
 let firstRender = true;
 let ctx;
 
-let numberOfFlakes = Math.floor(window.innerWidth * window.innerHeight * FLAKE_DENSITY);
+let cardWrapper;
+let width = 0;
+let height = 0;
+
+let numberOfFlakes = Math.floor(width * height * FLAKE_DENSITY);
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,8 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.style.top = "0px";
   canvas.style.left = "0px";
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  cardWrapper = document.querySelector(".card-wrapper-inner");
+  width = cardWrapper.getBoundingClientRect().width;
+  height = cardWrapper.getBoundingClientRect().height;
+
+  numberOfFlakes = Math.floor(width * height * FLAKE_DENSITY);
+
+  canvas.width = width;
+  canvas.height = height;
 
   ctx = canvas.getContext("2d");
 
@@ -39,14 +47,15 @@ window.addEventListener("resize", () => {
 
   firstRender = true;
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  let cardWrapper = document.querySelector(".card-wrapper-inner");
+  width = cardWrapper.getBoundingClientRect().width;
+  height = cardWrapper.getBoundingClientRect().height;
 
-  canvasWidth = window.innerWidth;
-  canvasHeight = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
 
   removeOutOfBoundSnowflakes();
-  const updatedNumberOfFlakes = Math.floor(window.innerWidth * window.innerHeight * FLAKE_DENSITY);
+  const updatedNumberOfFlakes = Math.floor(width * height * FLAKE_DENSITY);
 
   if ( snowflakes.length < updatedNumberOfFlakes  ) {
     generateSnowFlakes(updatedNumberOfFlakes - snowflakes.length);
