@@ -51,6 +51,11 @@ body{
     font-style: italic;
 }
 
+.text-signature{
+    font-family: "Caveat", cursive;  /* Handwritten style */
+    color: #333333;
+}
+
 #from {
     position: absolute;
     bottom: 5vh; 
