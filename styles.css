@@ -17,8 +17,8 @@ body{
     background-size: cover;
     aspect-ratio: 6/4;
     max-width: 100%;
-    width: 100%;
     height: auto;
+    max-height: 100vh; /* Prevent vertical overflow on landscape phones */
 }
 
 .text {
