@@ -5,9 +5,8 @@ body{
 }
 
 .card-wrapper-outer {
-    position:relative;
-    margin: auto;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: relative;
+    margin: auto;          /* Center horizontally */
 }
 
 .card-wrapper-inner{
@@ -16,8 +15,9 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    aspect-ratio: 3 / 2;
-    max-width: 1200px;
+    aspect-ratio: 6/4;
+    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 
@@ -33,7 +33,6 @@ body{
     justify-content: center;
     align-items: center;
     height: 100%;
-    font-size: 5rem;
     color: red;
     flex-direction: column;
     z-index: 1000;
@@ -73,7 +72,6 @@ body{
 #from {
     position: absolute;
     bottom: 5vh; 
-    font-size: 3em;
     color: red;
     width: 100%;
     text-align: center;
@@ -81,4 +79,26 @@ body{
 }
 
 
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  /* Styles here */ 
+  .card-wrapper-inner{
+    max-width: 600px;
+  }
+}
 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  /* Styles here */ 
+  .card-wrapper-inner{
+    max-width: 800px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  /* Styles here */ 
+  .card-wrapper-inner{
+    max-width: 1000px;
+  }
+}
