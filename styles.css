@@ -1,104 +1,162 @@
-body{
+/* -------------------------
+   Base Page Styling
+-------------------------- */
+body {
     background-color: #f0f8ff;
     height: 100vh;
     margin: 0;
 }
 
+/* Container that centers the card */
 .card-wrapper-outer {
     position: relative;
-    margin: auto;          /* Center horizontally */
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.card-wrapper-inner{
-    position:relative;
+/* -------------------------
+   Card Wrapper (important!)
+-------------------------- */
+.card-wrapper-inner {
+    position: relative;
+
+    /* FIX: give the card a real width */
+    width: 80vw;
+    max-width: 1000px;
+
+    /* Maintain your photo card shape */
+    aspect-ratio: 6 / 4;
     background-image: url("snow_scene.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    aspect-ratio: 6/4;
-    max-width: 100%;
+
+    border-radius: 20px;
+    overflow: hidden; /* ensures snow stays inside */
     height: auto;
-    max-height: 100vh; /* Prevent vertical overflow on landscape phones */
+    max-height: 100vh;
 }
 
+/* -------------------------
+   Snow Canvas Overlay
+-------------------------- */
+#snow-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1; /* snow BELOW text */
+}
+
+/* -------------------------
+   Text Styling
+-------------------------- */
 .text {
     text-align: center;
     font-family: "EB Garamond", serif;
     text-shadow: 1px 1px white;
     font-weight: bold;
+
+    /* Responsive text sizing */
+    font-size: clamp(1.2rem, 2vw, 2rem);
 }
 
+/* Main greeting container */
 #flex-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    color: red;
     flex-direction: column;
-    z-index: 1000;
+
+    color: red;
+    z-index: 2; /* ABOVE snow canvas */
 }
 
-
-#merry{
+/* Featured "Merry" text */
+#merry {
     position: relative;
-
+    font-size: clamp(2.2rem, 3.5vw, 4rem);
 }
 
+/* Hat on the first letter */
 .merry-first-letter::after {
     content: '';
     background-image: url("christmas_hat.svg");
     background-repeat: no-repeat;
-    background-size: contain;   
+    background-size: contain;
+
     position: absolute;
-    width: 1.5em;              
-    height: 1.5em;              
-    top: -0.55em;                
-    left: -0.1em;              
+    width: 1.5em;
+    height: 1.5em;
+    top: -0.55em;
+    left: -0.1em;
+
     pointer-events: none;
-    transform:rotate(-10deg);
+    transform: rotate(-10deg);
 }
 
-.text-emphasise{
+/* Green decorative emphasized word */
+.text-emphasise {
     font-family: "Sofia", sans-serif;
     color: green;
     font-style: italic;
 }
 
-.text-signature{
-    font-family: "Caveat", cursive;  /* Handwritten style */
+/* Handwritten signature */
+.text-signature {
+    font-family: "Caveat", cursive;
     color: #333333;
 }
 
+/* Signature line at the bottom */
 #from {
     position: absolute;
-    bottom: 5vh; 
-    color: red;
+    bottom: 5vh;
+    left: 0;
+
     width: 100%;
     text-align: center;
-    box-sizing: border-box
+
+    box-sizing: border-box;
+    color: red;
+    z-index: 2;
+
+    /* Scales nicely on different screens */
+    font-size: clamp(1.1rem, 1.3vw, 1.8rem);
 }
 
+/* -------------------------
+   Responsive Sizing
+-------------------------- */
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-  /* Styles here */ 
-  .card-wrapper-inner{
-    max-width: 600px;
-  }
+/* Medium devices */
+@media (min-width: 768px) {
+    .card-wrapper-inner {
+        max-width: 600px;
+    }
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-  /* Styles here */ 
-  .card-wrapper-inner{
-    max-width: 800px;
-  }
+/* Large devices */
+@media (min-width: 992px) {
+    .card-wrapper-inner {
+        max-width: 800px;
+    }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { 
-  /* Styles here */ 
-  .card-wrapper-inner{
-    max-width: 1000px;
-  }
+/* Extra large devices */
+@media (min-width: 1200px) {
+    .card-wrapper-inner {
+        max-width: 1000px;
+    }
 }
