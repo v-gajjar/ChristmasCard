@@ -2,7 +2,7 @@
    Base Page Styling
 -------------------------- */
 body {
-    background-color: #f0f8ff;
+    background-color: #e6f0fa;
     height: 100vh;
     margin: 0;
 }
@@ -18,26 +18,30 @@ body {
 }
 
 /* -------------------------
-   Card Wrapper (important!)
+   Card Wrapper
 -------------------------- */
 .card-wrapper-inner {
     position: relative;
 
-    /* FIX: give the card a real width */
+    /* Card width / aspect */
     width: 80vw;
     max-width: 1000px;
-
-    /* Maintain your photo card shape */
     aspect-ratio: 6 / 4;
+
     background-image: url("snow_scene.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    border-radius: 20px;
-    overflow: hidden; /* ensures snow stays inside */
+    border-radius: 24px;
+    overflow: hidden;
     height: auto;
     max-height: 100vh;
+
+    /* Whole-card zoom origin */
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.2s ease-out;
 }
 
 /* -------------------------
@@ -47,26 +51,53 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1; /* snow BELOW text */
+    z-index: 1; /* snow below text */
+}
+
+/* -------------------------
+   Card Zoom Controls
+-------------------------- */
+
+#card-zoom-controls {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3; /* above snow + text */
+    display: flex;
+    gap: 6px;
+}
+
+#card-zoom-controls button {
+    font-size: 1.2rem;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+#card-zoom-controls button:hover {
+    background: #ffffff;
 }
 
 /* -------------------------
    Text Styling
 -------------------------- */
+
 .text {
     text-align: center;
     font-family: "EB Garamond", serif;
     text-shadow: 1px 1px white;
     font-weight: bold;
-
-    /* Responsive text sizing */
     font-size: clamp(1.2rem, 2vw, 2rem);
 }
 
-/* Main greeting container */
+/* Text container over the card */
 #flex-container {
     position: absolute;
     top: 0;
@@ -80,40 +111,34 @@ body {
     flex-direction: column;
 
     color: red;
-    z-index: 2; /* ABOVE snow canvas */
+    z-index: 2; /* above snow canvas */
 }
 
-/* Featured "Merry" text */
 #merry {
     position: relative;
     font-size: clamp(2.2rem, 3.5vw, 4rem);
 }
 
-/* Hat on the first letter */
 .merry-first-letter::after {
     content: '';
     background-image: url("christmas_hat.svg");
     background-repeat: no-repeat;
     background-size: contain;
-
     position: absolute;
     width: 1.5em;
     height: 1.5em;
     top: -0.55em;
     left: -0.1em;
-
     pointer-events: none;
     transform: rotate(-10deg);
 }
 
-/* Green decorative emphasized word */
 .text-emphasise {
     font-family: "Sofia", sans-serif;
     color: green;
     font-style: italic;
 }
 
-/* Handwritten signature */
 .text-signature {
     font-family: "Caveat", cursive;
     color: #333333;
@@ -124,15 +149,11 @@ body {
     position: absolute;
     bottom: 5vh;
     left: 0;
-
     width: 100%;
     text-align: center;
-
     box-sizing: border-box;
     color: red;
     z-index: 2;
-
-    /* Scales nicely on different screens */
     font-size: clamp(1.1rem, 1.3vw, 1.8rem);
 }
 
