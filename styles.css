@@ -1,183 +1,104 @@
-/* -------------------------
-   Base Page Styling
--------------------------- */
-body {
-    background-color: #e6f0fa;
+body{
+    background-color: #f0f8ff;
     height: 100vh;
     margin: 0;
 }
 
-/* Container that centers the card */
 .card-wrapper-outer {
     position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: auto;          /* Center horizontally */
 }
 
-/* -------------------------
-   Card Wrapper
--------------------------- */
-.card-wrapper-inner {
-    position: relative;
-
-    /* Card width / aspect */
-    width: 80vw;
-    max-width: 1000px;
-    aspect-ratio: 6 / 4;
-
+.card-wrapper-inner{
+    position:relative;
     background-image: url("snow_scene.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    border-radius: 24px;
-    overflow: hidden;
+    aspect-ratio: 6/4;
+    max-width: 100%;
     height: auto;
-    max-height: 100vh;
-
-    /* Whole-card zoom origin */
-    transform-origin: center center;
-    transform: scale(1);
-    transition: transform 0.2s ease-out;
+    max-height: 100vh; /* Prevent vertical overflow on landscape phones */
 }
-
-/* -------------------------
-   Snow Canvas Overlay
--------------------------- */
-#snow-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1; /* snow below text */
-}
-
-/* -------------------------
-   Card Zoom Controls
--------------------------- */
-
-#card-zoom-controls {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    z-index: 3; /* above snow + text */
-    display: flex;
-    gap: 6px;
-}
-
-#card-zoom-controls button {
-    font-size: 1.2rem;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.85);
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-}
-
-#card-zoom-controls button:hover {
-    background: #ffffff;
-}
-
-/* -------------------------
-   Text Styling
--------------------------- */
 
 .text {
     text-align: center;
     font-family: "EB Garamond", serif;
     text-shadow: 1px 1px white;
     font-weight: bold;
-    font-size: clamp(1.2rem, 2vw, 2rem);
 }
 
-/* Text container over the card */
 #flex-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-
+    height: 100%;
     color: red;
-    z-index: 2; /* above snow canvas */
+    flex-direction: column;
+    z-index: 1000;
 }
 
-#merry {
+
+#merry{
     position: relative;
-    font-size: clamp(2.2rem, 3.5vw, 4rem);
+
 }
 
 .merry-first-letter::after {
     content: '';
     background-image: url("christmas_hat.svg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain;   
     position: absolute;
-    width: 1.5em;
-    height: 1.5em;
-    top: -0.55em;
-    left: -0.1em;
+    width: 1.5em;              
+    height: 1.5em;              
+    top: -0.55em;                
+    left: -0.1em;              
     pointer-events: none;
-    transform: rotate(-10deg);
+    transform:rotate(-10deg);
 }
 
-.text-emphasise {
+.text-emphasise{
     font-family: "Sofia", sans-serif;
     color: green;
     font-style: italic;
 }
 
-.text-signature {
-    font-family: "Caveat", cursive;
+.text-signature{
+    font-family: "Caveat", cursive;  /* Handwritten style */
     color: #333333;
 }
 
-/* Signature line at the bottom */
 #from {
     position: absolute;
-    bottom: 5vh;
-    left: 0;
+    bottom: 5vh; 
+    color: red;
     width: 100%;
     text-align: center;
-    box-sizing: border-box;
-    color: red;
-    z-index: 2;
-    font-size: clamp(1.1rem, 1.3vw, 1.8rem);
+    box-sizing: border-box
 }
 
-/* -------------------------
-   Responsive Sizing
--------------------------- */
 
-/* Medium devices */
-@media (min-width: 768px) {
-    .card-wrapper-inner {
-        max-width: 600px;
-    }
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  /* Styles here */ 
+  .card-wrapper-inner{
+    max-width: 600px;
+  }
 }
 
-/* Large devices */
-@media (min-width: 992px) {
-    .card-wrapper-inner {
-        max-width: 800px;
-    }
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  /* Styles here */ 
+  .card-wrapper-inner{
+    max-width: 800px;
+  }
 }
 
-/* Extra large devices */
-@media (min-width: 1200px) {
-    .card-wrapper-inner {
-        max-width: 1000px;
-    }
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  /* Styles here */ 
+  .card-wrapper-inner{
+    max-width: 1000px;
+  }
 }
