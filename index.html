@@ -1,62 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Snow script -->
-  <script src="snow.js" defer></script>
-  <title>Snowy Christmas Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <script src="snow.js" defer></script>
 </head>
 
 <body>
-  <div class="card-wrapper-outer">
-    <!-- This whole card will zoom in/out -->
-    <div class="card-wrapper-inner">
-      <!-- Zoom controls for the whole card -->
-      <div id="card-zoom-controls">
-        <button id="card-zoom-out">−</button>
-        <button id="card-zoom-in">+</button>
-      </div>
-
-      <!-- Snow canvas overlay -->
-      <canvas id="snow-canvas"></canvas>
-
-      <!-- Main greeting text -->
-      <div id="flex-container">
-        <div id="greetingTopLine">
-          <span class="text">Have </span>
-          <span class="blankSpace"> </span>
-          <span class="text">Yourself</span>
-          <span class="blankSpace"> </span>
-          <span class="text">a</span>
+    <div class="card-wrapper-outer">
+        <div class="card-wrapper-inner">
+            <canvas id="snow-canvas"></canvas>
+            <div id="flex-container">
+                <div id="greetingTopLine">
+                    <span class="text">Have </span>
+                    <span class="blankSpace"> </span>
+                    <span class="text">Yourself</span>
+                    <span class="blankSpace"> </span>
+                    <span class="text">a</span>
+                </div>
+                <div id="greetingBottomLine">
+                    <span id="merry" class="text text-emphasise">
+                        <span class="merry-first-letter">M</span>erry
+                    </span>
+                    <span class="blankSpace"> </span>
+                    <span class="text">Little</span>
+                    <span class="blankSpace"> </span>
+                    <span class="text">Christmas</span>
+                </div>
+            </div>
+            <div id="from"><span class="text">From <span class="text text-signature">Vinay</span></span></div>
         </div>
-        <div id="greetingBottomLine">
-          <span id="merry" class="text text-emphasise">
-            <span class="merry-first-letter">M</span>erry
-          </span>
-          <span class="blankSpace"> </span>
-          <span class="text">Little</span>
-          <span class="blankSpace"> </span>
-          <span class="text">Christmas</span>
-        </div>
-      </div>
-
-      <!-- Signature line -->
-      <div id="from">
-        <span class="text">
-          From <span class="text text-signature">Vinay</span>
-        </span>
-      </div>
     </div>
-  </div>
 </body>
+
 </html>
